@@ -16,3 +16,7 @@ GO_BUILD := $(GOENV) go build -trimpath -gcflags "all=-N -l" -ldflags '$(LDFLAGS
 
 snr-client:
 	$(GO_BUILD) -o bin/snr-client main.go
+
+.PHONY: snr-client-release
+snr-client-release: snr-client
+	cd bin && tar -czf SonatypeNexusRepositoryClient-linux-amd64.tar.gz snr-client
