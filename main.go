@@ -6,6 +6,7 @@ package main
 import (
 	"os"
 
+	fakeruntime "github.com/linuxsuren/go-fake-runtime"
 	"github.com/wongearl/SonatypeNexusRepositoryClient/cmd"
 )
 
