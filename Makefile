@@ -24,3 +24,18 @@ snr-client-release: snr-client
 
 image-build-snr-client:
 	docker build . -f build/Dockerfile -t ${SNRCLIENT}
+
+.PHONY: fmt
+fmt: ## Run go fmt against code.
+	go fmt ./...
+
+.PHONY: vet
+vet: ## Run go vet against code.
+	go vet ./...
+test:
+	go test ./... -coverprofile coverage.out
+	go tool cover -func=coverage.out
+
+yaml-check:
+	kubeconform
+
